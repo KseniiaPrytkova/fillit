@@ -147,7 +147,8 @@ int		main(int argc, char *argv[])
 // В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
 	put_fig(squard_to_fill, array_of_figures[0]->matrix, fig_number, squard_size);
 
-printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 0, 3));
+// printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 3, 3));
+	multi_fit(squard_to_fill, array_of_figures[1]->matrix );
 
 	printf("RESULT FIELD:\n");
 	print_squard(squard_to_fill, squard_size);
