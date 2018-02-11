@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
+void	put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
 {
 	int limit;
 	int counter;
@@ -24,6 +24,7 @@ void put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
 	ft_index = 0;
 	sd_index = 0;
 	
+
 	while (counter < limit)
 	{
 		fill_me[ft_index][sd_index] = matrix[ft_index][sd_index];
@@ -39,3 +40,7 @@ void put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
 	}
 
 }
+
+
+
+

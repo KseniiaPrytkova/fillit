@@ -37,5 +37,4 @@ void move_shape(char **matrix, int get_x_offset, int get_y_offset, int squard_si
 void figure_offset(char **matrix, int squard_size);
 int		is_fit(char	**matrix, char **squard_to_fill, int x, int y);
 void 	multi_fit(char **squard_to_fill, char **matrix);
-
 #endif
