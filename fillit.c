@@ -138,7 +138,7 @@ int		main(int argc, char *argv[])
 	// printf("y_offset is %i\n", get_y_offset(array_of_figures[2]->matrix, squard_size));
 
 	squard_to_fill = ft_generate(squard_size);
- 
+ 	
 	// пустой. сюда будем вставлять фигуры
 	printf("This is squard to fill! must be empty!\n");
 	print_squard(squard_to_fill, squard_size);
@@ -146,6 +146,9 @@ int		main(int argc, char *argv[])
 
 // В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
 	put_fig(squard_to_fill, array_of_figures[0]->matrix, fig_number, squard_size);
+
+printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 0, 3));
+
 	printf("RESULT FIELD:\n");
 	print_squard(squard_to_fill, squard_size);
 	

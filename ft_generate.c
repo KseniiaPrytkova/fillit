@@ -31,19 +31,22 @@ char	**ft_generate(int squard_size)
 	int		j;
 
 	i = 0;
-	if (!(squard = (char **)malloc(sizeof(char *) * (squard_size + 1))))
+	if (!(squard = (char **)malloc(sizeof(char *) * (squard_size + 2))))
 		return (NULL);
-	while (i < squard_size)
+	while (i < squard_size + 2)
 	{
 		j = 0;
-		if (!(squard[i] = (char *)malloc(sizeof(char) * (squard_size + 1))))
+		if (!(squard[i] = (char *)malloc(sizeof(char) * (squard_size + 2))))
 			return (NULL);
-		while (j < squard_size)
+		while (j < squard_size + 2)
 		{
-			squard[i][j] = '.';
+			if (i >= squard_size || j >= squard_size)
+				squard[i][j] = '\0';
+			else 
+				squard[i][j] = '.';
 			j++;
 		}
-		squard[i][j] = '\0';
+		// squard[i][j] = '\0';
 		i++;
 	}
 	return (squard);

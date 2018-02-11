@@ -35,5 +35,6 @@ int 	get_y_offset(char **matrix, int squard_size);
 void 	clean_matrix(char **matrix, int squard_size);
 void move_shape(char **matrix, int get_x_offset, int get_y_offset, int squard_size);
 void figure_offset(char **matrix, int squard_size);
+int		is_fit(char	**matrix, char **squard_to_fill, int x, int y);
 
 #endif
