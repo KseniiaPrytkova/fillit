@@ -41,6 +41,36 @@ void	put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
 
 }
 
+void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
+{
+	int		row;
+	int		col;
+	char	*sb_to_be_found;
+
+
+	row = 0;
+	sb_to_be_found = ft_itoa(nb_of_fig_to_del);
+	printf("%s\n", sb_to_be_found );
+	while (row < 4)
+	{
+		col = 0;
+		while (col < 4)
+		{
+			if (squard_to_fill[row][col] == *sb_to_be_found)
+			{
+				squard_to_fill[row][col] = '.';
+			}
+			col++;
+		}
+		row++;
+	}
+}
+
+// void	shift_me(char **squard_to_fill, squard_size)
+// {
+// 	move_shape(squard_to_fill, -1, -1, squard_size);
+// }
+
 
 
 

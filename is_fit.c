@@ -46,7 +46,7 @@ void	ok_here(char **squard_to_fill, char **matrix, int y, int x)
 	}
 }
 
-void	multi_fit(char **squard_to_fill, char **matrix)
+int		multiple_fit(char **squard_to_fill, char **matrix)
 {
 	int		row;
 	int		col;
@@ -60,13 +60,15 @@ void	multi_fit(char **squard_to_fill, char **matrix)
 			if (squard_to_fill[row][col] != '#')
 			{
 				if (is_fit(matrix, squard_to_fill, row, col) == 1)
-				{
-					
+				{	
 					ok_here(squard_to_fill, matrix, row, col);
+					return (1);
 				}
 			}
 			col++;
 		}
 		row++;
 	}
+	return (0);
 }
+
