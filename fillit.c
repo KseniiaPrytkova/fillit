@@ -94,6 +94,8 @@ int		main(int argc, char *argv[])
 	int 	squard_size;
 
 	int 	figure_counter;
+	int 	x;
+	int 	y;
 
 	figure **array_of_figures;
 
@@ -147,29 +149,172 @@ int		main(int argc, char *argv[])
 	printf("-----------------\n");
 
 // В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
-	put_fig(squard_to_fill, array_of_figures[0]->matrix, fig_number, squard_size);
+	ok_here(squard_to_fill, array_of_figures[0], 0, 0, 0);
 
 	printf("RESULT FIELD:\n");
 	print_squard(squard_to_fill, squard_size);	
 	// printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 3, 3));
 
+	// index = 0 it's the very 1st figure, skip it!!!
 	index = 1;
 	figure_counter = 1;
-	while (index <= fig_number + 1)
+	while (index < 3)
 	{
-		figure_counter = 1;
-		if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix) != 1)
-		{
-			figure_counter = index - figure_counter;
-			del_me(squard_to_fill, figure_counter);
-
-			move_shape(squard_to_fill, -1, 0, squard_size);
-			break;
+		if (multiple_fit(squard_to_fill, array_of_figures[index], index)) {
+			index++;
 		}
-		
-		index++;
-		// figure_counter = 1;
+		else
+		{
+			// figure_counter = index - figure_counter;
+			index--;
+			del_me(squard_to_fill, index);
+
+			if (get_x_offset(squard_to_fill, squard_size) == 3)
+			{
+				x = 0;
+				y = -1;
+				
+			}
+			else
+			{
+				x = -1;
+				y = 0;
+			}
+			move_shape(squard_to_fill, x, y, squard_size);			
+			// break;
+			figure_counter = figure_counter - 1;
+		}
 	}
+
+		// index = 2;
+		// figure_counter = 2;
+		// if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix, figure_counter) != 1)
+		// {
+		// 	// figure_counter = index - figure_counter;
+		// 	figure_counter = figure_counter - 1;
+		// 	del_me(squard_to_fill, figure_counter);
+
+		// 	if (get_x_offset(squard_to_fill, squard_size) == 3)
+		// 	{
+		// 		x = 0;
+		// 		y = -1;
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		x = -1;
+		// 		y = 0;
+		// 	}
+		// 	move_shape(squard_to_fill, x, y, squard_size);			
+		// 	// break;
+			
+		// }
+		
+
+		// index = 1;
+		// figure_counter = 1;
+
+		// if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix, figure_counter) != 1)
+		// {
+		// 	// figure_counter = index - figure_counter;
+		// 	figure_counter = figure_counter - 1;
+		// 	del_me(squard_to_fill, figure_counter);
+
+		// 	if (get_x_offset(squard_to_fill, squard_size) == 3)
+		// 	{
+		// 		x = 0;
+		// 		y = -1;
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		x = -1;
+		// 		y = 0;
+		// 	}
+		// 	move_shape(squard_to_fill, x, y, squard_size);			
+		// 	// break;
+			
+		// }
+
+
+		// index = 2;
+		// figure_counter = 2;
+
+		// if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix, figure_counter) != 1)
+		// {
+		// 	// figure_counter = index - figure_counter;
+		// 	figure_counter = figure_counter - 1;
+		// 	del_me(squard_to_fill, figure_counter);
+
+		// 	if (get_x_offset(squard_to_fill, squard_size) == 3)
+		// 	{
+		// 		x = 0;
+		// 		y = -1;
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		x = -1;
+		// 		y = 0;
+		// 	}
+		// 	move_shape(squard_to_fill, x, y, squard_size);			
+		// 	// break;
+			
+		// }
+		
+
+		// index = 1;
+		// figure_counter = 1;
+
+		// if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix, figure_counter) != 1)
+		// {
+		// 	// figure_counter = index - figure_counter;
+		// 	figure_counter = figure_counter - 1;
+		// 	del_me(squard_to_fill, figure_counter);
+
+		// 	if (get_x_offset(squard_to_fill, squard_size) == 3)
+		// 	{
+		// 		x = 0;
+		// 		y = -1;
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		x = -1;
+		// 		y = 0;
+		// 	}
+		// 	move_shape(squard_to_fill, x, y, squard_size);			
+		// 	// break;
+			
+		// }
+	
+
+		// index = 2;
+		// figure_counter = 2;
+
+		// if (multiple_fit(squard_to_fill, array_of_figures[index]->matrix, figure_counter) != 1)
+		// {
+		// 	// figure_counter = index - figure_counter;
+		// 	figure_counter = figure_counter - 1;
+		// 	del_me(squard_to_fill, figure_counter);
+
+		// 	if (get_x_offset(squard_to_fill, squard_size) == 3)
+		// 	{
+		// 		x = 0;
+		// 		y = -1;
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		x = -1;
+		// 		y = 0;
+		// 	}
+		// 	move_shape(squard_to_fill, x, y, squard_size);			
+		// 	// break;
+			
+		// }
+
+
 		// multi_fit(squard_to_fill, array_of_figures[1]->matrix);
 		printf("AFTER PUTTING NEXT FIGURE:\n");
 		print_squard(squard_to_fill, squard_size);
