@@ -31,7 +31,7 @@ int					ft_checktabl(char *str);
 int					ft_squard_size(int fig_number);
 char				**ft_generate(int squad_size);
 void 				print_squard(char **squard, int squard_size);
-void	put_fig(char **fill_me, char **array_of_fig, int fig_nb, int squard_size);
+// void	put_fig(char **fill_me, char **array_of_fig, int fig_nb, int squard_size);
 int 	get_x_offset(char **matrix, int squard_size);
 int 	get_y_offset(char **matrix, int squard_size);
 void 	clean_matrix(char **matrix, int squard_size);
@@ -41,4 +41,5 @@ int		is_fit(char	**matrix, char **squard_to_fill, int x, int y);
 int 	multiple_fit(char **squard_to_fill, figure *f, int fig_counter);
 void	del_me(char **squard_to_fill, int nb_of_fig_to_del);
 void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter);
+int		shift_me(char **squard_to_fill, figure *f,  int fig_counter);
 #endif

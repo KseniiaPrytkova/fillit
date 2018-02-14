@@ -37,6 +37,19 @@ char	**ft_generate(int squard_size)
 	}
 	return (squard);
 }
+
+void 	free_me(char **squard_to_free, int	squard_size)
+{
+	int		i;
+	
+	i = 0;
+	while (i < squard_size + 2)
+	{
+		free(squard_to_free[i]);
+	}
+	free(squard_to_free);
+}
+
 void 	print_squard(char **squard, int squard_size)
 {
 	int limit;

@@ -61,14 +61,11 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
 		col = 0;
 		while (col < 4)
 		{
-			if (squard_to_fill[row][col] != '#')
-			{
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
 					ok_here(squard_to_fill, f, row, col, fig_counter);
 					return (1);
 				}
-			}
 			col++;
 		}
 		row++;
@@ -76,3 +73,32 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
 	return (0);
 }
 
+int		shift_me(char **squard_to_fill, figure *f,  int fig_counter)
+{
+	int		row;
+	int		col;
+	int 	is_used;
+
+	is_used = 0;
+	row = f->y;
+	while (row < 4)
+	{
+		if (is_used)
+			col = 0;
+		else
+			col = f->x + 1;
+
+		while (col < 4)
+		{
+			is_used = 1;
+				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
+				{	
+					ok_here(squard_to_fill, f, row, col, fig_counter);
+					return (1);
+				}
+			col++;
+		}
+		row++;
+	}
+	return (0);
+}

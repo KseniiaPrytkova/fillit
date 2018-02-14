@@ -12,34 +12,34 @@
 
 #include "fillit.h"
 
-void	put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
-{
-	int limit;
-	int counter;
-	int ft_index;
-	int sd_index;
+// void	put_fig(char **fill_me, char **matrix, int fig_nb, int squard_size)
+// {
+// 	int limit;
+// 	int counter;
+// 	int ft_index;
+// 	int sd_index;
 
-	limit = squard_size * squard_size;
-	counter = 0;
-	ft_index = 0;
-	sd_index = 0;
+// 	limit = squard_size * squard_size;
+// 	counter = 0;
+// 	ft_index = 0;
+// 	sd_index = 0;
 	
 
-	while (counter < limit)
-	{
-		fill_me[ft_index][sd_index] = matrix[ft_index][sd_index];
-		sd_index++;
+// 	while (counter < limit)
+// 	{
+// 		fill_me[ft_index][sd_index] = matrix[ft_index][sd_index];
+// 		sd_index++;
 
-		if (sd_index == squard_size)
-		{
-			sd_index = 0;
-			ft_index++;
+// 		if (sd_index == squard_size)
+// 		{
+// 			sd_index = 0;
+// 			ft_index++;
 
-		}
-		counter++;
-	}
+// 		}
+// 		counter++;
+// 	}
 
-}
+// }
 
 void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 {
@@ -50,7 +50,7 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 
 	row = 0;
 	sb_to_be_found = ft_itoa(nb_of_fig_to_del);
-	printf("%s\n", sb_to_be_found );
+	// printf("%s\n", sb_to_be_found );
 	while (row < 4)
 	{
 		col = 0;
