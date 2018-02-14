@@ -79,6 +79,7 @@ int		shift_me(char **squard_to_fill, figure *f,  int fig_counter)
 	int		col;
 	int 	is_used;
 
+	del_me(squard_to_fill, fig_counter);
 	is_used = 0;
 	row = f->y;
 	while (row < 4)

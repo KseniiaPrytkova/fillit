@@ -31,6 +31,8 @@ figure 	*init_figure()
 	f->matrix[2] = ft_strnew(4 + 1);
 	f->matrix[3] = ft_strnew(4 + 1);
 
+	f->x = -1;
+	f->y = 0;
 	return (f);
 	 
 }
@@ -92,10 +94,8 @@ int		main(int argc, char *argv[])
 	int 	index;
 	char	**squard_to_fill;
 	int 	squard_size;
+	int 	*states;
 
-	int 	figure_counter;
-	int 	x;
-	int 	y;
 
 	figure **array_of_figures;
 
@@ -155,10 +155,10 @@ int		main(int argc, char *argv[])
 	print_squard(squard_to_fill, squard_size);
 
 
-	squard_size = squard_size + 1;
-	squard_to_fill = ft_generate(squard_size);
-	printf("RESULT FIELD + 1:\n");
-	print_squard(squard_to_fill, squard_size);
+	// squard_size = squard_size + 1;
+	// squard_to_fill = ft_generate(squard_size);
+	// printf("RESULT FIELD + 1:\n");
+	// print_squard(squard_to_fill, squard_size);
 	// printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 3, 3));
 
 	// index = 0 it's the very 1st figure, skip it!!!
@@ -185,6 +185,41 @@ int		main(int argc, char *argv[])
 	// 		print_squard(squard_to_fill, squard_size);
 	// }
 		// multi_fit(squard_to_fill, array_of_figures[1]->matrix);
+
+	states = malloc(sizeof(int) * fig_number);
+	index = 0;
+	while (index < fig_number)
+	{
+		if (shift_me(squard_to_fill, array_of_figures[index], index))
+		{
+			printf("Shifted: %i\n", index);
+			states[index] = 0;
+			index++;
+		}
+		else
+		{
+			states[index] = 1;
+			printf("NOT Shifted: %i\n", index);
+			if (should_extend(states, index) == 1)
+			{
+				//extend squard
+				free_me(squard_to_fill, squard_size);
+				squard_size++;
+				squard_to_fill = ft_generate(squard_size);
+				index = 0;
+				continue;
+			}
+
+			index--;
+			array_of_figures[index]->x = -1;
+			array_of_figures[index]->y = 0;
+			
+				// continue;
+		}
+			printf("AFTER PUTTING NEXT FIGURE:\n");
+			print_squard(squard_to_fill, squard_size);
+	}
+
 
 
 	return (0);

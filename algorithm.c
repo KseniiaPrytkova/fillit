@@ -66,6 +66,22 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 	}
 }
 
+int		should_extend(int	*states, int	index)
+{
+	int i;
+
+	i = 0;
+	while (i < index)
+	{
+		if (states[i] == 0)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
 // void	shift_me(char **squard_to_fill, squard_size)
 // {
 // 	move_shape(squard_to_fill, -1, -1, squard_size);
