@@ -44,4 +44,7 @@ void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter);
 int		shift_me(char **squard_to_fill, figure *f,  int fig_counter);
 int		should_extend(int	*states, int	index);
 void 	free_me(char **squard_to_free, int	squard_size);
+// int		where_is_x(char **squard_to_fill, int	fig_counter);
+// int		where_is_y(char **squard_to_fill, int	fig_counter);
+void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter);
 #endif

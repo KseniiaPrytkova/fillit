@@ -66,27 +66,103 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 	}
 }
 
-int		should_extend(int	*states, int	index)
-{
-	int i;
+// int		should_extend(int	*states, int	index)
+// {
+// 	int i;
 
-	i = 0;
-	while (i < index)
-	{
-		if (states[i] == 0)
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
+// 	i = 0;
+// 	while (i < index)
+// 	{
+// 		if (states[i] == 0)
+// 		{
+// 			return (0);
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 // void	shift_me(char **squard_to_fill, squard_size)
 // {
 // 	move_shape(squard_to_fill, -1, -1, squard_size);
 // }
 
+// int		where_is_x(char **squard_to_fill, int	fig_counter)
+// {
+// 	int		row;
+// 	int		col;
+// 	char	*sb_to_look_for;
+// 	int		current_x;
 
+// 	sb_to_look_for = ft_itoa(fig_counter);
+// 	row = 0;
+// 	while (row < 4)
+// 	{
+// 		col = 0;
+// 		while (col < 4)
+// 		{
+// 			if (squard_to_fill[row][col] == *sb_to_look_for)
+// 			{
+// 				current_x = col;
+// 				break;
+// 			}
+// 			col++;
+// 		}
+// 		row++;
+// 	}
+// 	return (current_x);
+// }
+
+// int		where_is_y(char **squard_to_fill, int	fig_counter)
+// {
+// 	int		row;
+// 	int		col;
+// 	char	*sb_to_look_for;
+// 	int		current_y;
+
+// 	sb_to_look_for = ft_itoa(fig_counter);
+// 	row = 0;
+// 	while (row < 4)
+// 	{
+// 		col = 0;
+// 		while (col < 4)
+// 		{
+// 			if (squard_to_fill[row][col] == *sb_to_look_for)
+// 			{
+// 				current_y = row;
+// 				break;
+// 			}
+// 			col++;
+// 		}
+// 		row++;
+// 	}
+// 	return (current_y);
+// }
+
+void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
+{
+	int		row;
+	int		col;
+	char	*sb_to_look_for;
+	int		current_y;
+
+	sb_to_look_for = ft_itoa(fig_counter);
+	row = 0;
+	while (row < 4)
+	{
+		col = 0;
+		while (col < 4)
+		{
+			if (squard_to_fill[row][col] == *sb_to_look_for)
+			{
+				f->x = col;
+				f->y = row;
+				break;
+			}
+			col++;
+		}
+		row++;
+	}
+}
 
 

@@ -186,38 +186,83 @@ int		main(int argc, char *argv[])
 	// }
 		// multi_fit(squard_to_fill, array_of_figures[1]->matrix);
 
-	states = malloc(sizeof(int) * fig_number);
-	index = 0;
-	while (index < fig_number)
-	{
-		if (shift_me(squard_to_fill, array_of_figures[index], index))
-		{
-			printf("Shifted: %i\n", index);
-			states[index] = 0;
-			index++;
-		}
-		else
-		{
-			states[index] = 1;
-			printf("NOT Shifted: %i\n", index);
-			if (should_extend(states, index) == 1)
-			{
-				//extend squard
-				free_me(squard_to_fill, squard_size);
-				squard_size++;
-				squard_to_fill = ft_generate(squard_size);
-				index = 0;
-				continue;
-			}
 
-			index--;
-			array_of_figures[index]->x = -1;
-			array_of_figures[index]->y = 0;
+	// states = malloc(sizeof(int) * fig_number);
+	// index = 0;
+	// while (index < fig_number)
+	// {
+	// 	if (shift_me(squard_to_fill, array_of_figures[index], index))
+	// 	{
+	// 		printf("Shifted: %i\n", index);
+	// 		states[index] = 0;
+	// 		index++;
+	// 	}
+	// 	else
+	// 	{
+	// 		states[index] = 1;
+	// 		printf("NOT Shifted: %i\n", index);
+	// 		if (should_extend(states, index) == 1)
+	// 		{
+	// 			//extend squard
+	// 			free_me(squard_to_fill, squard_size);
+	// 			squard_size++;
+	// 			squard_to_fill = ft_generate(squard_size);
+	// 			index = 0;
+	// 			continue;
+	// 		}
+
+	// 		index--;
+	// 		array_of_figures[index]->x = -1;
+	// 		array_of_figures[index]->y = 0;
 			
-				// continue;
-		}
-			printf("AFTER PUTTING NEXT FIGURE:\n");
-			print_squard(squard_to_fill, squard_size);
+	// 			// continue;
+	// 	}
+	// 		printf("AFTER PUTTING NEXT FIGURE:\n");
+	// 		print_squard(squard_to_fill, squard_size);
+	// }
+
+	index = 0;
+
+	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+		index++;
+	printf("AFTER PUTTING NEXT FIGURE:\n");
+	print_squard(squard_to_fill, squard_size);
+	printf("now index = %i\n", index );
+
+	// index = 1;
+	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+		index++;
+	printf("AFTER PUTTING NEXT FIGURE:\n");
+	print_squard(squard_to_fill, squard_size);
+	printf("now index = %i\n", index );
+
+	// index = 2;
+	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+	{
+		index++;
+		printf("AFTER PUTTING NEXT FIGURE:\n");
+		print_squard(squard_to_fill, squard_size);
+		printf("now index = %i\n", index );
+	}
+	else
+	{
+		// if (shift_me(squard_to_fill, array_of_figures[index - 1], index))
+		// {
+		// 	printf("Shifted: %i\n", index - 1);
+		// 	states[index] = 0;
+		// 	index++;
+		// }
+		// else
+		// {
+		// 	states[index] = 1;
+		// 	printf("NOT Shifted: %i\n", index);
+		// }
+
+		// printf("%i\n",   where_is_x(squard_to_fill, index - 1));
+		// printf("%i\n",   where_is_y(squard_to_fill, index - 1));
+		where_is_xy(squard_to_fill, array_of_figures[index - 1], index - 1);
+		printf("%i\n", array_of_figures[index - 1]->x  );
+		printf("%i\n", array_of_figures[index - 1]->y  );
 	}
 
 
