@@ -73,30 +73,30 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
 	return (0);
 }
 
-int		shift_me(char **squard_to_fill, figure *f,  int fig_counter)
+int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
 {
 	int		row;
 	int		col;
-	int 	is_used;
+	int		is_it_first_time;
 
-	del_me(squard_to_fill, fig_counter);
-	is_used = 0;
 	row = f->y;
+	is_it_first_time = 1;
+
 	while (row < 4)
 	{
-		if (is_used)
-			col = 0;
-		else
+		if (is_it_first_time == 1)
+		{
 			col = f->x + 1;
-
+		}
+		else
+			col = 0;
 		while (col < 4)
 		{
-			is_used = 1;
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
-					ok_here(squard_to_fill, f, row, col, fig_counter);
 					return (1);
 				}
+			is_it_first_time = 0;
 			col++;
 		}
 		row++;

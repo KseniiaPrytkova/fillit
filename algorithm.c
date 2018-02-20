@@ -144,7 +144,7 @@ void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 	int		row;
 	int		col;
 	char	*sb_to_look_for;
-	int		current_y;
+
 
 	sb_to_look_for = ft_itoa(fig_counter);
 	row = 0;
@@ -156,7 +156,9 @@ void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 			if (squard_to_fill[row][col] == *sb_to_look_for)
 			{
 				f->x = col;
+				printf("x is: %i\n", col );
 				f->y = row;
+				printf("y is: %i\n", row );
 				break;
 			}
 			col++;
