@@ -139,7 +139,7 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 // 	return (current_y);
 // }
 
-void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
+int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 {
 	int		row;
 	int		col;
@@ -147,6 +147,7 @@ void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 
 
 	sb_to_look_for = ft_itoa(fig_counter);
+	// printf("%s\n", sb_to_look_for );
 	row = 0;
 	while (row < 4)
 	{
@@ -156,15 +157,17 @@ void	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 			if (squard_to_fill[row][col] == *sb_to_look_for)
 			{
 				f->x = col;
-				printf("x is: %i\n", col );
+				// printf("x is: %i\n", col );
 				f->y = row;
-				printf("y is: %i\n", row );
-				break;
+				// printf("y is: %i\n", row );
+				return (1);
 			}
 			col++;
 		}
 		row++;
 	}
+	return (0);
 }
+
 
 
