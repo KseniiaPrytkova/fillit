@@ -197,6 +197,16 @@ while (index < fig_number)
 				counter--;
 			}
 
+			if (counter == 0 && (can_i_shift(squard_to_fill, array_of_figures[index], index) == 0) )
+			{
+				printf("WE MUST MAKE THE SQUARD BIGGER!!!\n");
+				free_me(squard_to_fill, squard_size);
+				squard_size = squard_size + 1;
+  				squard_to_fill = ft_generate(squard_size);
+ 				printf("RESULT FIELD + 1:\n");
+ 				print_squard(squard_to_fill, squard_size);
+			}
+
 			index = counter;
 
 			printf("I CAN shift :D\n");
