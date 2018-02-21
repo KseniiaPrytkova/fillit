@@ -82,6 +82,7 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
 	row = f->y;
 	is_it_first_time = 1;
 
+	del_me(squard_to_fill, fig_counter);
 	while (row < 4)
 	{
 		if (is_it_first_time == 1)
@@ -94,6 +95,11 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
 		{
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
+					f->x = col;
+					f->y = row;
+
+					// printf(" u can put here y %i\n", f->y );
+					// printf(" u can put here x %i\n", f->x );
 					return (1);
 				}
 			is_it_first_time = 0;
