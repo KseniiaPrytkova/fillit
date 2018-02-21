@@ -96,6 +96,7 @@ int		main(int argc, char *argv[])
 	int 	squard_size;
 	int 	*states;
 	int logical;
+	int counter;
 
 
 	figure **array_of_figures;
@@ -156,235 +157,240 @@ int		main(int argc, char *argv[])
 	print_squard(squard_to_fill, squard_size);
 
 
-	// squard_size = squard_size + 1;
-	// squard_to_fill = ft_generate(squard_size);
-	// printf("RESULT FIELD + 1:\n");
-	// print_squard(squard_to_fill, squard_size);
-	// printf("is fit? %i \n", is_fit(array_of_figures[1]->matrix, squard_to_fill, 3, 3));
+	
 
-	// index = 0 it's the very 1st figure, skip it!!!
-	// index = 0;
-	// while (index < 3)
-	// {
-	// 	if (multiple_fit(squard_to_fill, array_of_figures[index], index)) {
-	// 		index++;
-	// 	}
-	// 	else
-	// 	{
-	// 		index--;
-	// 		del_me(squard_to_fill, index);
-			
-	// 		if (can_i_shift(squard_to_fill, array_of_figures[index], index)) {
-	// 			printf("Shifted\n");
-	// 		} else {
-	// 			printf("NOT Shifted %i\n", index);
-	// 			// del_me(squard_to_fill, index - 1);
-	// 			index--;
-	// 		}
-	// 	}
-	// 		printf("AFTER PUTTING NEXT FIGURE:\n");
-	// 		print_squard(squard_to_fill, squard_size);
-	// }
-		// multi_fit(squard_to_fill, array_of_figures[1]->matrix);
+// 	index = 0;
+
+// 	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 	printf("AFTER PUTTING NEXT FIGURE:\n");
+// 	print_squard(squard_to_fill, squard_size);
+// 	printf("now index = %i\n", index );
+
+// 	// index = 1;
+// 	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 	printf("AFTER PUTTING NEXT FIGURE:\n");
+// 	print_squard(squard_to_fill, squard_size);
+// 	printf("now index = %i\n", index );
+
+// 	// index = 2;
+// 	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 	{
+// 		index++;
+// 		printf("AFTER PUTTING NEXT FIGURE:\n");
+// 		print_squard(squard_to_fill, squard_size);
+// 		printf("now index = %i\n", index );
+// 	}
+// 	else
+// 	{
+
+// 		index = index - 1;
+// 		// index = 1;
+
+// 		where_is_xy(squard_to_fill, array_of_figures[index], index);
+// 		printf("x = %i\n", array_of_figures[index]->x  );
+// 		printf("y = %i\n", array_of_figures[index]->y  );
+
+// 		// printf("can shift? %i\n", can_i_shift(squard_to_fill, array_of_figures[index - 1],  index - 1) );
+// 		if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 0)
+// 		{
+// 			del_me(squard_to_fill, index);
+
+// 			index = index - 1;
+// 			// index = 0;
+
+// 			print_squard(squard_to_fill, squard_size);
+// 			printf("now index = %i\n", index );
+// 			printf(">>figure %i ++ \n", index );
+
+// 			where_is_xy(squard_to_fill, array_of_figures[0], 0);
+// 			printf("x = %i\n", array_of_figures[0]->x  );
+// 			printf("y = %i\n", array_of_figures[0]->y  );
+
+// 		}
+// 		if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 1)
+// 		{
+// 					printf(" u can put here y %i\n", array_of_figures[0]->y);
+// 					printf(" u can put here x %i\n", array_of_figures[0]->x);
+// 			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[0]->y, array_of_figures[0]->x, index);
+// 			index = index + 1;
+// 			print_squard(squard_to_fill, squard_size);
+// 			ft_putchar('\n');
+// 		}
+
+// 		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 		print_squard(squard_to_fill, squard_size);
+// 		printf("now index = %i\n", index );
+// /////////////
+		
+// 		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
+// 		{
+// 			index--;
+// 			where_is_xy(squard_to_fill, array_of_figures[index], index);
+// 			printf("x = %i\n", array_of_figures[index]->x  );
+// 			printf("y = %i\n", array_of_figures[index]->y  );
+
+// 		 	if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 0)
+// 			{
+// 				del_me(squard_to_fill, index);
+
+// 				index = index - 1;
+// 			// index = 0;
+
+// 				print_squard(squard_to_fill, squard_size);
+// 				printf("now index = %i\n", index );
+// 				printf(">>figure %i ++ \n", index );
+
+// 				where_is_xy(squard_to_fill, array_of_figures[0], 0);
+// 				printf("x = %i\n", array_of_figures[0]->x  );
+// 				printf("y = %i\n", array_of_figures[0]->y  );
+
+// 			}
+// 			if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 1)
+// 			{
+// 					printf(" u can put here y %i\n", array_of_figures[0]->y);
+// 					printf(" u can put here x %i\n", array_of_figures[0]->x);
+// 			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[0]->y, array_of_figures[0]->x, index);
+// 			index = index + 1;
+// 			print_squard(squard_to_fill, squard_size);
+// 			ft_putchar('\n');
+// 			}
+
+// 		}
+
+// 		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 		print_squard(squard_to_fill, squard_size);
+// 		printf("now index = %i\n", index );
+
+// 		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 		print_squard(squard_to_fill, squard_size);
+// 		printf("now index = %i\n", index );
+
+// // index = 3;
+// 		printf("--------------------\n");
+
+// 		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
+// 		{
+// 			index--;
+// 			where_is_xy(squard_to_fill, array_of_figures[index], index);
+// 			printf("x = %i\n", array_of_figures[index]->x  );
+// 			printf("y = %i\n", array_of_figures[index]->y  );
+
+// 		}
+// printf("i am here\n");
+// logical = can_i_shift(squard_to_fill, array_of_figures[index],  index);
+// printf("i am logical:%i\n", logical);
+
+// 		if (logical == 0)
+// 		{
+// 				printf("i can't shift\n");
+// 				del_me(squard_to_fill, index);
+
+// 				index = index - 1;
+// 			// index = 0;
+
+// 				print_squard(squard_to_fill, squard_size);
+// 				printf("now index = %i\n", index );
+// 				printf(">>figure %i ++ \n", index );
+
+// 				where_is_xy(squard_to_fill, array_of_figures[0], 0);
+// 				printf("x = %i\n", array_of_figures[0]->x  );
+// 				printf("y = %i\n", array_of_figures[0]->y  );
+
+// 		}
+// 		else if (logical == 1)
+// 		{
+// 			printf("i CAN shift\n");
+// 					printf(" u can put here y %i\n", array_of_figures[index]->y);
+// 					printf(" u can put here x %i\n", array_of_figures[index]->x);
+// 			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
+// 			index = index + 1;
+// 			print_squard(squard_to_fill, squard_size);
+// 			ft_putchar('\n');
+// 		}
+
+// 			if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+// 		index++;
+// 		print_squard(squard_to_fill, squard_size);
+// 		printf("now index = %i\n", index );
 
 
-	// states = malloc(sizeof(int) * fig_number);
-	// index = 0;
-	// while (index < fig_number)
-	// {
-	// 	if (can_i_shift(squard_to_fill, array_of_figures[index], index))
-	// 	{
-	// 		printf("Shifted: %i\n", index);
-	// 		states[index] = 0;
-	// 		index++;
-	// 	}
-	// 	else
-	// 	{
-	// 		states[index] = 1;
-	// 		printf("NOT Shifted: %i\n", index);
-	// 		if (should_extend(states, index) == 1)
-	// 		{
-	// 			//extend squard
-	// 			free_me(squard_to_fill, squard_size);
-	// 			squard_size++;
-	// 			squard_to_fill = ft_generate(squard_size);
-	// 			index = 0;
-	// 			continue;
-	// 		}
-
-	// 		index--;
-	// 		array_of_figures[index]->x = -1;
-	// 		array_of_figures[index]->y = 0;
-			
-	// 			// continue;
-	// 	}
-	// 		printf("AFTER PUTTING NEXT FIGURE:\n");
-	// 		print_squard(squard_to_fill, squard_size);
-	// }
-
-	index = 0;
-
-	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-	printf("AFTER PUTTING NEXT FIGURE:\n");
-	print_squard(squard_to_fill, squard_size);
-	printf("now index = %i\n", index );
-
-	// index = 1;
-	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-	printf("AFTER PUTTING NEXT FIGURE:\n");
-	print_squard(squard_to_fill, squard_size);
-	printf("now index = %i\n", index );
-
-	// index = 2;
+// 	}
+index = 0;
+while (index < fig_number)
+{
 	if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
 	{
-		index++;
-		printf("AFTER PUTTING NEXT FIGURE:\n");
+		printf("The squard after putting  %i figure \n", index );
 		print_squard(squard_to_fill, squard_size);
 		printf("now index = %i\n", index );
 	}
-	else
+	else if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
 	{
-
 		index = index - 1;
-		// index = 1;
-
 		where_is_xy(squard_to_fill, array_of_figures[index], index);
-		printf("x = %i\n", array_of_figures[index]->x  );
-		printf("y = %i\n", array_of_figures[index]->y  );
+		printf("x of figure %i = %i\n", index, array_of_figures[index]->x);
+		printf("y of figure %i = %i\n", index, array_of_figures[index]->y);
 
-		// printf("can shift? %i\n", can_i_shift(squard_to_fill, array_of_figures[index - 1],  index - 1) );
-		if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 0)
-		{
-			del_me(squard_to_fill, index);
-
-			index = index - 1;
-			// index = 0;
-
-			print_squard(squard_to_fill, squard_size);
-			printf("now index = %i\n", index );
-			printf(">>figure %i ++ \n", index );
-
-			where_is_xy(squard_to_fill, array_of_figures[0], 0);
-			printf("x = %i\n", array_of_figures[0]->x  );
-			printf("y = %i\n", array_of_figures[0]->y  );
-
-		}
-		if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 1)
-		{
-					printf(" u can put here y %i\n", array_of_figures[0]->y);
-					printf(" u can put here x %i\n", array_of_figures[0]->x);
-			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[0]->y, array_of_figures[0]->x, index);
-			index = index + 1;
-			print_squard(squard_to_fill, squard_size);
-			ft_putchar('\n');
-		}
-
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-		print_squard(squard_to_fill, squard_size);
-		printf("now index = %i\n", index );
-/////////////
-		
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
-		{
-			index--;
-			where_is_xy(squard_to_fill, array_of_figures[index], index);
-			printf("x = %i\n", array_of_figures[index]->x  );
-			printf("y = %i\n", array_of_figures[index]->y  );
-
-		 	if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 0)
-			{
-				del_me(squard_to_fill, index);
-
-				index = index - 1;
-			// index = 0;
-
-				print_squard(squard_to_fill, squard_size);
-				printf("now index = %i\n", index );
-				printf(">>figure %i ++ \n", index );
-
-				where_is_xy(squard_to_fill, array_of_figures[0], 0);
-				printf("x = %i\n", array_of_figures[0]->x  );
-				printf("y = %i\n", array_of_figures[0]->y  );
-
-			}
-			if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 1)
-			{
-					printf(" u can put here y %i\n", array_of_figures[0]->y);
-					printf(" u can put here x %i\n", array_of_figures[0]->x);
-			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[0]->y, array_of_figures[0]->x, index);
-			index = index + 1;
-			print_squard(squard_to_fill, squard_size);
-			ft_putchar('\n');
-			}
-
-		}
-
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-		print_squard(squard_to_fill, squard_size);
-		printf("now index = %i\n", index );
-
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-		print_squard(squard_to_fill, squard_size);
-		printf("now index = %i\n", index );
-
-// index = 3;
-		printf("--------------------\n");
-
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
-		{
-			index--;
-			where_is_xy(squard_to_fill, array_of_figures[index], index);
-			printf("x = %i\n", array_of_figures[index]->x  );
-			printf("y = %i\n", array_of_figures[index]->y  );
-
-		}
-printf("i am here\n");
-logical = can_i_shift(squard_to_fill, array_of_figures[index],  index);
-printf("i am logical:%i\n", logical);
+		logical = can_i_shift(squard_to_fill, array_of_figures[index], index);
+		printf("i am logical of can_i_shift on fig %i : %i\n", index, logical);
 
 		if (logical == 0)
 		{
-				printf("i can't shift\n");
+			counter = index;
+			while (logical != 1 && counter > 0)
+			{
+				printf("I can't shift =(\n");
 				del_me(squard_to_fill, index);
 
 				index = index - 1;
-			// index = 0;
-
 				print_squard(squard_to_fill, squard_size);
 				printf("now index = %i\n", index );
-				printf(">>figure %i ++ \n", index );
+				printf("we should shift figure %i \n", index);
 
-				where_is_xy(squard_to_fill, array_of_figures[0], 0);
-				printf("x = %i\n", array_of_figures[0]->x  );
-				printf("y = %i\n", array_of_figures[0]->y  );
+				where_is_xy(squard_to_fill, array_of_figures[index], index);
+				printf("x of figure %i = %i\n", index, array_of_figures[index]->x);
+				printf("y of figure %i = %i\n", index, array_of_figures[index]->y);
+				logical = can_i_shift(squard_to_fill, array_of_figures[index], index);
 
+				counter--;
+			}
+
+			index = counter;
+
+			printf("I CAN shift :D\n");
+			printf("index = %i\n", index );
+
+			printf(" u can put y here: %i\n", array_of_figures[index]->y);
+			printf(" u can put x here: %i\n", array_of_figures[index]->x);
+			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
+			
+			print_squard(squard_to_fill, squard_size);
+			ft_putchar('\n');
+			
 		}
 		else if (logical == 1)
 		{
-			printf("i CAN shift\n");
-					printf(" u can put here y %i\n", array_of_figures[index]->y);
-					printf(" u can put here x %i\n", array_of_figures[index]->x);
+			printf("I CAN shift :D\n");
+			printf("index = %i\n", index );
+
+			printf(" u can put y here: %i\n", array_of_figures[index]->y);
+			printf(" u can put x here: %i\n", array_of_figures[index]->x);
 			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
-			index = index + 1;
+			
 			print_squard(squard_to_fill, squard_size);
 			ft_putchar('\n');
 		}
-		
-			if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
-		index++;
-		print_squard(squard_to_fill, squard_size);
-		printf("now index = %i\n", index );
-
 
 	}
+	index++;
+	printf(">>>>>INDEX<<<<< = %i\n", index );
 
-
+}
 
 	return (0);
 }
