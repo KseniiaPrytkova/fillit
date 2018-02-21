@@ -95,6 +95,7 @@ int		main(int argc, char *argv[])
 	char	**squard_to_fill;
 	int 	squard_size;
 	int 	*states;
+	int logical;
 
 
 	figure **array_of_figures;
@@ -332,11 +333,54 @@ int		main(int argc, char *argv[])
 		print_squard(squard_to_fill, squard_size);
 		printf("now index = %i\n", index );
 
-		// if (can_i_shift(squard_to_fill, array_of_figures[index],  index) == 1)
-		// {
-		// 	ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->y, index);
-		// 	print_squard(squard_to_fill, squard_size);
-		// }
+// index = 3;
+		printf("--------------------\n");
+
+		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
+		{
+			index--;
+			where_is_xy(squard_to_fill, array_of_figures[index], index);
+			printf("x = %i\n", array_of_figures[index]->x  );
+			printf("y = %i\n", array_of_figures[index]->y  );
+
+		}
+printf("i am here\n");
+logical = can_i_shift(squard_to_fill, array_of_figures[index],  index);
+printf("i am logical:%i\n", logical);
+
+		if (logical == 0)
+		{
+				printf("i can't shift\n");
+				del_me(squard_to_fill, index);
+
+				index = index - 1;
+			// index = 0;
+
+				print_squard(squard_to_fill, squard_size);
+				printf("now index = %i\n", index );
+				printf(">>figure %i ++ \n", index );
+
+				where_is_xy(squard_to_fill, array_of_figures[0], 0);
+				printf("x = %i\n", array_of_figures[0]->x  );
+				printf("y = %i\n", array_of_figures[0]->y  );
+
+		}
+		else if (logical == 1)
+		{
+			printf("i CAN shift\n");
+					printf(" u can put here y %i\n", array_of_figures[index]->y);
+					printf(" u can put here x %i\n", array_of_figures[index]->x);
+			ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
+			index = index + 1;
+			print_squard(squard_to_fill, squard_size);
+			ft_putchar('\n');
+		}
+		
+			if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+		index++;
+		print_squard(squard_to_fill, squard_size);
+		printf("now index = %i\n", index );
+
 
 	}
 

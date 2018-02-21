@@ -169,5 +169,9 @@ int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 	return (0);
 }
 
+// int 	increment_coordinates(figure *f, char **squard_to_fill)
+// {
+// 	if ()
+// }
 
 
