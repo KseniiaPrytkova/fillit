@@ -42,7 +42,7 @@ void 	free_me(char **squard_to_free, int	squard_size)
 {
 	int		i;
 	print_squard(squard_to_free, squard_size);
-	
+
 	i = 0;
 			// system("leaks test");
 	while (i < squard_size + 2)

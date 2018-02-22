@@ -22,7 +22,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			printf("x of figure %i = %i\n", index, array_of_figures[index]->x);
 			printf("y of figure %i = %i\n", index, array_of_figures[index]->y);
 
-			logical = can_i_shift(squard_to_fill, array_of_figures[index], index);
+			logical = can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size);
 			printf("i am logical of can_i_shift on fig %i : %i\n", index, logical);
 			if (logical == 0)
 			{
@@ -40,12 +40,12 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 					where_is_xy(squard_to_fill, array_of_figures[index], index);
 					printf("x of figure %i = %i\n", index, array_of_figures[index]->x);
 					printf("y of figure %i = %i\n", index, array_of_figures[index]->y);
-					logical = can_i_shift(squard_to_fill, array_of_figures[index], index);
+					logical = can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size);
 
 					counter--;
 				}
 
-				if (counter == 0 && (can_i_shift(squard_to_fill, array_of_figures[index], index) == 0) )
+				if (counter == 0 && (can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size) == 0) )
 				{
 					printf("WE MUST MAKE THE SQUARD BIGGER!!!\n");
 					print_squard(squard_to_fill, squard_size);

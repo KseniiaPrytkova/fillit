@@ -73,7 +73,7 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
 	return (0);
 }
 
-int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
+int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_size)
 {
 	int		row;
 	int		col;
@@ -83,7 +83,7 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
 	is_it_first_time = 1;
 
 	del_me(squard_to_fill, fig_counter);
-	while (row < 4)
+	while (row < squard_size)
 	{
 		if (is_it_first_time == 1)
 		{
@@ -91,7 +91,7 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter)
 		}
 		else
 			col = 0;
-		while (col < 4)
+		while (col < squard_size)
 		{
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
