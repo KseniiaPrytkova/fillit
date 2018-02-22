@@ -48,4 +48,6 @@ void 	free_me(char **squard_to_free, int	squard_size);
 // int		where_is_y(char **squard_to_fill, int	fig_counter);
 int	where_is_xy(char **squard_to_fill, figure *f, int	fig_counter);
 int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter);
+
+int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **array_of_figures  );
 #endif
