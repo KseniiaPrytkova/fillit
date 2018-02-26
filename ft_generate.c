@@ -39,7 +39,8 @@ int 	min_sq_width(char **matrix)
 		}
 		row++;
 	}
-	if ( (matrix[0][0] == '.' && matrix[0][2] != '.') || (matrix[1][0] == '.' && matrix[1][1] != '.' && matrix[1][2] != '.'))
+	if ( (matrix[0][0] != '.' && matrix[0][1] != '.' && matrix[1][1] != '.' && matrix[1][2] != '.') ||
+	 	(matrix[0][1] != '.' && matrix[0][2] != '.' && matrix[1][0] != '.' && matrix[1][1] != '.'))
 		{
 			max_width++;
 		}
@@ -79,8 +80,8 @@ int 	min_sq_height(char **matrix)
 		printf("max: %i\n", max_height );
 		col++;
 	}
-		if ((matrix[0][0] == '.' && matrix[2][0] != '.') ||
-			(matrix[2][1] != '.' && matrix[0][0] != '.' && matrix[1][1] != '.'))
+		if ((matrix[0][1] != '.' && matrix[1][0] != '.' && matrix[1][1] != '.' && matrix[2][0] != '.') ||
+			(matrix[0][0] != '.' && matrix[1][0] != '.' && matrix[1][1] != '.' && matrix[2][1] != '.'))
 		{
 			max_height++;
 		}
