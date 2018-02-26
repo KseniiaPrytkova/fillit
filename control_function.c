@@ -14,7 +14,9 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			printf("The squard after putting  %i figure \n", index );
 			print_squard(squard_to_fill, squard_size);
 			printf("now index = %i\n", index );
+
 		}
+
 		else if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
 		{
 			index = index - 1;

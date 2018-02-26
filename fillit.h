@@ -28,15 +28,17 @@ typedef struct	shape
 
 char				*read_from_file(char *filename);
 int					ft_checktabl(char *str);
-int					ft_squard_size(int fig_number);
+// int					ft_squard_size(int fig_number);
+int 	min_sq_width(char **matrix);
+int 	min_sq_height(char **matrix);
 char				**ft_generate(int squad_size);
 void 				print_squard(char **squard, int squard_size);
 // void	put_fig(char **fill_me, char **array_of_fig, int fig_nb, int squard_size);
-int 	get_x_offset(char **matrix, int squard_size);
-int 	get_y_offset(char **matrix, int squard_size);
-void 	clean_matrix(char **matrix, int squard_size);
-void move_shape(char **matrix, int get_x_offset, int get_y_offset, int squard_size);
-void figure_offset(char **matrix, int squard_size);
+int 	get_x_offset(char **matrix);
+int 	get_y_offset(char **matrix);
+void 	clean_matrix(char **matrix);
+void move_shape(char **matrix, int get_x_offset, int get_y_offset);
+void figure_offset(char **matrix);
 int		is_fit(char	**matrix, char **squard_to_fill, int x, int y);
 int 	multiple_fit(char **squard_to_fill, figure *f, int fig_counter);
 void	del_me(char **squard_to_fill, int nb_of_fig_to_del);

@@ -174,4 +174,4 @@ int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 // 	if ()
 // }
 
-// qqq
+

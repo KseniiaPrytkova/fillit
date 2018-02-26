@@ -1,13 +1,90 @@
 #include "fillit.h"
 
-int		ft_squard_size(int fig_number)
-{
-	int		i;
+// int		ft_squard_size(int fig_number)
+// {
+// 	int		i;
 
-	i = 2;
-	while (i * i < fig_number * 4)
-		i++;
-	return (i);
+// 	i = 2;
+// 	while (i * i < fig_number * 4)
+// 		i++;
+// 	return (i);
+// }
+
+int 	min_sq_width(char **matrix)
+{
+	int row;
+	int col;
+	int	width;
+	int max_width;
+
+	row = 0;
+	width = 0;
+	max_width = 0;
+
+	while (row < 4)
+	{
+		col = 0;
+		width = 0;
+		while (col < 4)
+		{
+			if (matrix[row][col] != '.')
+			{
+				width++;
+			}
+			col++;
+		}
+		if (width > max_width)
+		{
+			max_width = width;
+		}
+		row++;
+	}
+	if ( (matrix[0][0] == '.' && matrix[0][2] != '.') || (matrix[1][0] == '.' && matrix[1][1] != '.' && matrix[1][2] != '.'))
+		{
+			max_width++;
+		}
+	return(max_width);
+}
+
+int 	min_sq_height(char **matrix)
+{
+	int row;
+	int col;
+	int height;
+	int max_height;
+
+	col = 0;
+
+		height = 0;
+
+	max_height = 0;
+
+	while (col < 4)
+	{
+		row = 0;
+		height = 0;
+		while (row < 4)
+		{
+			if (matrix[row][col] != '.')
+			{
+				height++;
+			}
+			row++;
+		}
+		printf("%i\n", height );
+		if (height > max_height)
+		{
+			max_height = height;
+		}
+		printf("max: %i\n", max_height );
+		col++;
+	}
+		if ((matrix[0][0] == '.' && matrix[2][0] != '.') ||
+			(matrix[2][1] != '.' && matrix[0][0] != '.' && matrix[1][1] != '.'))
+		{
+			max_height++;
+		}
+	return(max_height);
 }
 
 // //создает массив с квадратом, заполняет точками и ставить в конце каждой строки \0
