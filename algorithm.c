@@ -139,7 +139,7 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del)
 // 	return (current_y);
 // }
 
-int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
+int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter, int squard_size)
 {
 	int		row;
 	int		col;
@@ -147,12 +147,13 @@ int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 
 
 	sb_to_look_for = ft_itoa(fig_counter);
+	printf("%i\n", squard_size );
 	// printf("%s\n", sb_to_look_for );
 	row = 0;
-	while (row < 4)
+	while (row < squard_size)
 	{
 		col = 0;
-		while (col < 4)
+		while (col < squard_size)
 		{
 			if (squard_to_fill[row][col] == *sb_to_look_for)
 			{
@@ -169,9 +170,31 @@ int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter)
 	return (0);
 }
 
-// int 	increment_coordinates(figure *f, char **squard_to_fill)
-// {
-// 	if ()
-// }
+int 	is_full(char **squard_to_fill, int squard_size)
+{
+	int		row;
+	int		col;
+	int		not_full;
+
+	row = 0;
+	not_full = 0;
+	while (row < squard_size)
+	{
+		col = 0;
+		while (col < squard_size)
+		{
+			if (squard_to_fill[row][col] == '.')
+			{			
+				not_full++;	
+			}
+			col++;
+		}
+		row++;
+		if (not_full == 0)
+			return (1);
+	}
+	return (0);
+}
+
 
 
