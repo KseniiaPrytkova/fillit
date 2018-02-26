@@ -115,7 +115,7 @@ int		main(int argc, char *argv[])
 	}
 	printf("There is %i figures in file! \n", fig_number);
 	array_of_figures = malloc(sizeof(figure *) * fig_number);
-	//тут будут проверочки
+
 	index = 0;
 	while (index < fig_number)
 	{
