@@ -11,7 +11,7 @@ int		is_fit(char	**matrix, char **squard_to_fill, int y, int x)
 		col = 0;
 		while (col < 4)
 		{
-			if (matrix[row][col] == '#' || (matrix[row][col] > '0' && matrix[row][col] <= '9'))
+			if (matrix[row][col] == '#' || (matrix[row][col] > '0' && matrix[row][col] <= '9') || (matrix[row][col] > 'A' && matrix[row][col] <= 'Z'))
 			{
 				if (squard_to_fill[row + y][col + x] != '.' || squard_to_fill[row + y][col + x] == '\0')
 					return (0);
@@ -29,9 +29,11 @@ void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter)
 {
 	int		row;
 	int		col;
-	char	*sb_to_write;
+	char	sb_to_write;
 
-	sb_to_write = ft_itoa(fig_counter);
+
+sb_to_write = fig_counter + 'A';
+	// sb_to_write = ft_itoa(fig_counter);
 	f->x = x;
 	f->y = y;
 	row = 0;
@@ -42,7 +44,7 @@ void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter)
 		{
 			if (f->matrix[row][col] == '#')
 			{
-				squard_to_fill[row + y][col + x] = *sb_to_write;
+				squard_to_fill[row + y][col + x] = sb_to_write;
 			}
 			col++;
 		}

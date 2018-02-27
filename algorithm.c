@@ -45,18 +45,19 @@ void	del_me(char **squard_to_fill, int nb_of_fig_to_del, int squard_size)
 {
 	int		row;
 	int		col;
-	char	*sb_to_be_found;
+	char	sb_to_be_found;
 
+sb_to_be_found= nb_of_fig_to_del + 'A';
 
 	row = 0;
-	sb_to_be_found = ft_itoa(nb_of_fig_to_del);
+	// sb_to_be_found = ft_itoa(nb_of_fig_to_del);
 	// printf("%s\n", sb_to_be_found );
 	while (row < squard_size)
 	{
 		col = 0;
 		while (col < squard_size)
 		{
-			if (squard_to_fill[row][col] == *sb_to_be_found)
+			if (squard_to_fill[row][col] == sb_to_be_found)
 			{
 				squard_to_fill[row][col] = '.';
 			}
@@ -143,10 +144,11 @@ int		where_is_xy(char **squard_to_fill, figure *f, int	fig_counter, int squard_s
 {
 	int		row;
 	int		col;
-	char	*sb_to_look_for;
+	char	sb_to_look_for;
 
+sb_to_look_for = fig_counter + 'A';
 
-	sb_to_look_for = ft_itoa(fig_counter);
+	// sb_to_look_for = ft_itoa(fig_counter);
 printf("where_is_xy works: squard_size is: %i\n", squard_size );
 	// printf("where_is_xy works: squard_size is: %i\n", squard_size );
 	// printf("%s\n", sb_to_look_for );
@@ -156,7 +158,7 @@ printf("where_is_xy works: squard_size is: %i\n", squard_size );
 		col = 0;
 		while (col < squard_size)
 		{
-			if (squard_to_fill[row][col] == *sb_to_look_for)
+			if (squard_to_fill[row][col] == sb_to_look_for)
 			{
 				f->x = col;
 				// printf("x is: %i\n", col );
