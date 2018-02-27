@@ -50,17 +50,19 @@ void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter)
 	}
 }
 
-int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
+int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter, int squard_size)
 {
 	int		row;
 	int		col;
 
 	row = 0;
-	while (row < 4)
+	while (row < squard_size)
 	{
 		col = 0;
-		while (col < 4)
+		printf("row: %i col: %i\n", row, col );
+		while (col < squard_size)
 		{
+			printf("row: %i col: %i\n", row, col );
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
 					ok_here(squard_to_fill, f, row, col, fig_counter);
@@ -86,16 +88,19 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 	row = f->y;
 	is_it_first_time = 1;
 
+	printf("SQUARD_SIZE IN CAN_I_SHIFT IS: %i\n", squard_size );
 	del_me(squard_to_fill, fig_counter, squard_size);
 	// while (row <= (squard_size - f->y))
 	while (row < squard_size)
 	{
+		printf("row:: %i\n", row);
 		if (is_it_first_time == 1)
 		{
 			col = f->x + 1;
 		}
 		else
 			col = 0;
+
 		if (squard_to_fill[row][col] == '\0')
 		{
 			printf("YESYES\n");
@@ -103,10 +108,12 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 		// while (col <= (squard_size - f->x))
 		while (col < squard_size)
 		{
+			printf("col::%i\n", col);
 				if (squard_to_fill[row][col] == '\0')
-		{
-			printf("YESYES\n");
-		}
+				{
+					printf("YESYES\n");
+				}
+				
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
 					f->x = col;

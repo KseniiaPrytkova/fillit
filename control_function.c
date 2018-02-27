@@ -9,14 +9,14 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 	index = 0;
 	while (index < fig_number)
 	{
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 1)
+		if (multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size) == 1)
 		{
 			printf("The squard after putting  %i figure \n", index );
 			print_squard(squard_to_fill, squard_size);
 			printf("now index = %i\n", index );
 
 		}
-		else if ((multiple_fit(squard_to_fill, array_of_figures[index], index)) == 0 && (is_full(squard_to_fill, squard_size) == 1) && (index > 1))
+		else if ((multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size)) == 0 && (is_full(squard_to_fill, squard_size) == 1) && (index > 1))
 		{
 
 			printf("i am full!!! Lets make the squard bigger!!!\n");
@@ -31,7 +31,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			// while (1)
 			// 	{};
 		}
-		else if (multiple_fit(squard_to_fill, array_of_figures[index], index) == 0)
+		else if (multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size) == 0)
 		{
 			index = index - 1;
 			where_is_xy(squard_to_fill, array_of_figures[index], index, squard_size);
