@@ -37,8 +37,9 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			where_is_xy(squard_to_fill, array_of_figures[index], index, squard_size);
 			printf("x of figure %i = %i\n", index, array_of_figures[index]->x);
 			printf("y of figure %i = %i\n", index, array_of_figures[index]->y);
-
+			printf("CAN_I_SHIFT START WORKING!!!--------->>>>>>>>>\n");
 			logical = can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size);
+			print_squard(squard_to_fill, squard_size);
 			printf("i am logical of can_i_shift on fig %i : %i\n", index, logical);
 			if (logical == 0)
 			{
@@ -46,7 +47,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 				while (logical != 1 && counter > 0)
 				{
 					printf("I can't shift =(\n");
-					del_me(squard_to_fill, index);
+					del_me(squard_to_fill, index, squard_size);
 
 					index = index - 1;
 					print_squard(squard_to_fill, squard_size);
@@ -78,7 +79,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 
 				index = counter;
 
-				printf("I CAN shift :D\n");
+				printf("so now I CAN shift :D\n");
 				printf("index = %i\n", index );
 
 				printf(" u can put y here: %i\n", array_of_figures[index]->y);
@@ -91,11 +92,17 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			}
 			else if (logical == 1)
 			{
-				printf("I CAN shift :D\n");
+				print_squard(squard_to_fill, squard_size);
+				printf("I CAN shift(logical = 1) :D\n");
 				printf("index = %i\n", index );
+
 				printf(" u can put y here: %i\n", array_of_figures[index]->y);
 				printf(" u can put x here: %i\n", array_of_figures[index]->x);
-				del_me(squard_to_fill, index);
+
+				// can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size);
+				// printf(" u can put y here: %i\n", array_of_figures[index]->y);
+				// printf(" u can put x here: %i\n", array_of_figures[index]->x);
+				// print_squard(squard_to_fill, squard_size);
 				ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
 			
 				print_squard(squard_to_fill, squard_size);

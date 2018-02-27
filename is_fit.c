@@ -80,10 +80,14 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 	int		col;
 	int		is_it_first_time;
 
+	printf("  Y: %i\n", f->y );
+	printf("  X: %i\n", f->x );
+
 	row = f->y;
 	is_it_first_time = 1;
 
-	del_me(squard_to_fill, fig_counter);
+	del_me(squard_to_fill, fig_counter, squard_size);
+	// while (row <= (squard_size - f->y))
 	while (row < squard_size)
 	{
 		if (is_it_first_time == 1)
@@ -92,8 +96,17 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 		}
 		else
 			col = 0;
+		if (squard_to_fill[row][col] == '\0')
+		{
+			printf("YESYES\n");
+		}
+		// while (col <= (squard_size - f->x))
 		while (col < squard_size)
 		{
+				if (squard_to_fill[row][col] == '\0')
+		{
+			printf("YESYES\n");
+		}
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)
 				{	
 					f->x = col;
@@ -101,11 +114,16 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 
 					// printf(" u can put here y %i\n", f->y );
 					// printf(" u can put here x %i\n", f->x );
+					printf("row: %i col: %i\n", row, col );
+					
+
 					return (1);
 				}
 			is_it_first_time = 0;
+			printf("row: %i col: %i\n", row, col );
 			col++;
 		}
+		printf("row: %i col: %i\n", row, col );
 		row++;
 	}
 	return (0);

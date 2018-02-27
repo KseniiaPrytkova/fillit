@@ -41,7 +41,7 @@ void move_shape(char **matrix, int get_x_offset, int get_y_offset);
 void figure_offset(char **matrix);
 int		is_fit(char	**matrix, char **squard_to_fill, int x, int y);
 int 	multiple_fit(char **squard_to_fill, figure *f, int fig_counter);
-void	del_me(char **squard_to_fill, int nb_of_fig_to_del);
+void	del_me(char **squard_to_fill, int nb_of_fig_to_del, int squard_size);
 void	ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter);
 int		shift_me(char **squard_to_fill, figure *f,  int fig_counter);
 int		should_extend(int	*states, int	index);
