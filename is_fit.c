@@ -73,6 +73,7 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter)
 	return (0);
 }
 
+// mistake is here
 int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_size)
 {
 	int		row;
