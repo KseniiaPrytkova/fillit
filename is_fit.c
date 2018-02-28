@@ -58,10 +58,11 @@ int		multiple_fit(char **squard_to_fill, figure *f,  int fig_counter, int squard
 	int		col;
 
 	row = 0;
+	printf("i'm in multiple_fit NOW!!! squard_size = %i \n", squard_size);
 	while (row < squard_size)
 	{
 		col = 0;
-		printf("row: %i col: %i\n", row, col );
+		// printf("row: %i col: %i\n", row, col );
 		while (col < squard_size)
 		{
 			printf("row: %i col: %i\n", row, col );
