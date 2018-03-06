@@ -115,6 +115,7 @@ int		can_i_shift(char **squard_to_fill, figure *f,  int fig_counter, int squard_
 				if (squard_to_fill[row][col] == '\0')
 				{
 					printf("YESYES\n");
+					break;
 				}
 				
 				if (is_fit(f->matrix, squard_to_fill, row, col) == 1)

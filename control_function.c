@@ -5,19 +5,24 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 	int index;
 	int logical;
 	int counter;
+	int mult_fit_value;
 
 
 	index = 0;
 	while (index < fig_number)
 	{
-		if (multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size) == 1)
+		mult_fit_value = multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size);
+
+		if (mult_fit_value == 1)
+		// if (multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size) == 1)
 		{
 			printf("The squard after putting  %i figure \n", index );
 			print_squard(squard_to_fill, squard_size);
 			printf("now index = %i\n", index );
 
 		}
-		else if ((multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size)) == 0 && (is_full(squard_to_fill, squard_size) == 1))
+		else if ((mult_fit_value == 0) && (is_full(squard_to_fill, squard_size) == 1))
+		// else if ((multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size)) == 0 && (is_full(squard_to_fill, squard_size) == 1))
 		{
 
 			printf("i am full!!! Lets make the squard bigger!!!\n");
@@ -32,7 +37,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 			// while (1)
 			// 	{};
 		}
-		else if (multiple_fit(squard_to_fill, array_of_figures[index], index, squard_size) == 0)
+		else if (mult_fit_value == 0)
 		{
 			printf("multiple_fit == 0!!!\n");
 			index = index - 1;

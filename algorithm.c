@@ -180,6 +180,8 @@ int 	is_full(char **squard_to_fill, int squard_size)
 	int		col;
 	int		not_full;
 
+printf("I'M IN IS FULL NOW!!!\n");
+printf("%i\n", squard_size);
 	row = 0;
 	not_full = 0;
 	while (row < squard_size)
@@ -189,14 +191,17 @@ int 	is_full(char **squard_to_fill, int squard_size)
 		{
 			if (squard_to_fill[row][col] == '.')
 			{			
-				not_full++;	
+				not_full++;
+				// printf("%c\n",squard_to_fill[row][col] );	
 			}
 			col++;
 		}
 		row++;
-		if (not_full == 0)
-			return (1);
+		// if (not_full == 0)
+		// 	return (1);
 	}
+	if (not_full == 0)
+			return (1);
 	return (0);
 }
 
