@@ -53,6 +53,7 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 				counter = index;
 				while (logical != 1 && counter > 0)
 				{
+
 					printf("I can't shift =(\n");
 					del_me(squard_to_fill, index, squard_size);
 
@@ -68,8 +69,17 @@ int control_fn(int fig_number, char **squard_to_fill, int squard_size, figure **
 
 					counter--;
 				}
+				// if (logical == 1 && counter == 0)
+				// 	{
+				// 		printf("KAKAKAKAAAAAAA\n");
+				// 		ok_here(squard_to_fill, array_of_figures[index], array_of_figures[index]->y, array_of_figures[index]->x, index);
+				// 		print_squard(squard_to_fill, squard_size);
+				// 		ft_putchar('\n');
+						
+				// 	}
 
-				if (counter == 0 && (can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size) == 0) )
+					if (counter == 0 && (logical == 0) )
+				// if (counter == 0 && (can_i_shift(squard_to_fill, array_of_figures[index], index, squard_size) == 0) )
 				{
 					printf("WE MUST MAKE THE SQUARD BIGGER!!!\n");
 					print_squard(squard_to_fill, squard_size);
