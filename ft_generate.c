@@ -1,15 +1,5 @@
 #include "fillit.h"
 
-// int		ft_squard_size(int fig_number)
-// {
-// 	int		i;
-
-// 	i = 2;
-// 	while (i * i < fig_number * 4)
-// 		i++;
-// 	return (i);
-// }
-
 int 	min_sq_width(char **matrix)
 {
 	int row;
@@ -122,7 +112,7 @@ void 	free_me(char **squard_to_free, int	squard_size)
 	print_squard(squard_to_free, squard_size);
 
 	i = 0;
-			// system("leaks test");
+	// system("leaks test");
 	while (i < squard_size + 2)
 	{
 		free(squard_to_free[i]);
@@ -133,8 +123,6 @@ void 	free_me(char **squard_to_free, int	squard_size)
 	free(squard_to_free);
 	printf("%p\n", squard_to_free);
 	printf("now i'm here!!!\n");
-	// print_squard(squard_to_free, squard_size);
-	// squard_to_free = NULL;
 	printf("%p\n", squard_to_free);
 }
 

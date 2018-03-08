@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//VERSION 13.02
 #include "fillit.h"
-
-
 //creating an array of pointers
 //NOT the same with two-dimensional array
 //!!!
@@ -95,11 +92,9 @@ int		main(int argc, char *argv[])
 	char	**squard_to_fill;
 	int 	squard_size;
 	int 	*states;
-	int logical;
-	int counter;
-	// int min_size;
+	int 	logical;
+	int 	counter;
 
-	// min_size = 2;
 	figure **array_of_figures;
 
 	if (argc == 2)
@@ -116,7 +111,6 @@ int		main(int argc, char *argv[])
 	}
 	printf("There is %i figures in file! \n", fig_number);
 	array_of_figures = malloc(sizeof(figure *) * fig_number);
-	//тут будут проверочки
 	index = 0;
 	while (index < fig_number)
 	{
@@ -129,9 +123,6 @@ int		main(int argc, char *argv[])
 		result_string = result_string + 21;
 	}
 
-	// squard_size = min_size;
-
-
 // также работаем с array_of_figures но все фигуры смещены в левый верхний угол с помощью
 // функции figure_offset. т.е каждый matrix был перезаписан и смещен в угол
 	index = 0;
@@ -142,23 +133,15 @@ int		main(int argc, char *argv[])
 		ft_putchar('\n');
 		index++;
 	}
-	// printf("x_offset is %i\n", get_x_offset(array_of_figures[2]->matrix, squard_size));
-	// printf("y_offset is %i\n", get_y_offset(array_of_figures[2]->matrix, squard_size));
-printf("MIN_SQUARD_WIDTH IS: %i\n", min_sq_width(array_of_figures[0]->matrix));
-printf("MIN_SQUARD_HEIGHT IS:%i\n", min_sq_height(array_of_figures[0]->matrix));
+	printf("MIN_SQUARD_WIDTH IS: %i\n", min_sq_width(array_of_figures[0]->matrix));
+	printf("MIN_SQUARD_HEIGHT IS:%i\n", min_sq_height(array_of_figures[0]->matrix));
 
-squard_size = min_sq_width(array_of_figures[0]->matrix);
-if (min_sq_height(array_of_figures[0]->matrix) > squard_size)
-{
-	squard_size = min_sq_height(array_of_figures[0]->matrix);
-}
-	// squard_size = ft_squard_size(array_of_figures[0]->matrix);
+	squard_size = min_sq_width(array_of_figures[0]->matrix);
+	if (min_sq_height(array_of_figures[0]->matrix) > squard_size)
+	{
+		squard_size = min_sq_height(array_of_figures[0]->matrix);
+	}
 	printf("Squard_size is: %i\n", squard_size );
-
-// 			while (1)
-// {
-
-// };
 
 	squard_to_fill = ft_generate(squard_size);
  	
@@ -167,15 +150,13 @@ if (min_sq_height(array_of_figures[0]->matrix) > squard_size)
 	// print_squard(squard_to_fill, squard_size);
 	printf("-----------------\n");
 
-// В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
+	// В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
 	// ok_here(squard_to_fill, array_of_figures[0], 0, 0, 0);
 
 	printf("RESULT FIELD:\n");
 	print_squard(squard_to_fill, squard_size);
 
-
 	printf("control_fn says: %i\n", control_fn(fig_number, squard_to_fill, squard_size, array_of_figures ));
-
 
 	return (0);
 }
