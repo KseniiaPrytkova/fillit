@@ -29,12 +29,21 @@ int			is_fit(char **matrix, char **squard_to_fill, int y, int x)
 		{
 			if (is_it_first_time == 1)
 			{
+				// HERE MUST BE THE FUNCTION FOR THIS 6 EXTRA CASES, WHERE PROGRAM MAY FALL
+				// .#..
+				// .#..
+				// ##..
+				// ....
 				if (matrix[0][1] == '#' && matrix[1][1] == '#' && matrix[2][0] == '#' && matrix[2][1] == '#'
 						&& x == 3)
 				{
 					x = x - 1;
 					catch_fig = 2;
 				}
+				// ..#.
+				// ###.
+				// ....
+				// ....
 				else if (matrix[0][2] == '#' && matrix[1][0] == '#' && matrix[1][1] == '#' && matrix[1][2] == '#'
 						&& x == 3)
 				{
@@ -47,6 +56,25 @@ int			is_fit(char **matrix, char **squard_to_fill, int y, int x)
 					x = x - 2;
 					catch_fig = 4;
 				}
+				// .#..
+				// ###.
+				// ....
+				// ....
+
+				// .#..
+				// ##..
+				// .#..
+				// ....
+
+				// .#..
+				// ##..
+				// #...
+				// ....
+
+				// .##.
+				// ##..
+				// ....
+				// ....
 				else
 					is_it_first_time = 0;
 			}
@@ -57,6 +85,7 @@ int			is_fit(char **matrix, char **squard_to_fill, int y, int x)
 					return (0);
 				if (is_it_first_time == 1)
 				{
+					// HERE MUST BE THE FUNCTION FOR THIS 6 EXTRA CASES, WHERE PROGRAM MAY FALL
 					if (catch_fig == 2)
 					{
 						x = x + 1;
@@ -64,7 +93,7 @@ int			is_fit(char **matrix, char **squard_to_fill, int y, int x)
 					}
 					else if (catch_fig == 3)
 					{
-						x = x + 2;
+						x = x + 1;
 						is_it_first_time = 0;
 					}
 					else if (catch_fig == 4)
@@ -72,6 +101,7 @@ int			is_fit(char **matrix, char **squard_to_fill, int y, int x)
 						x = x + 2;
 						is_it_first_time = 0;
 					}
+					//
 				}
 			}
 			col++;
@@ -98,6 +128,7 @@ void		ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter)
 		{
 			if (f->matrix[row][col] == '#')
 			{
+				// HERE MUST BE THE FUNCTION FOR THIS 6 EXTRA CASES, WHERE PROGRAM MAY FALL
 				if (f->matrix[0][1] == '#' && f->matrix[1][1] == '#' && f->matrix[2][0] == '#' && f->matrix[2][1] == '#'
 						&& x == 3)
 					x = x - 1;
@@ -107,6 +138,7 @@ void		ok_here(char **squard_to_fill, figure *f, int y, int x, int fig_counter)
 				else if (f->matrix[0][2] == '#' && f->matrix[1][0] == '#' && f->matrix[1][1] == '#' && f->matrix[1][2] == '#'
 						&& x == 4)
 					x = x - 2;
+				//
 				squard_to_fill[row + y][col + x] = sb_to_write;
 			}
 			col++;
