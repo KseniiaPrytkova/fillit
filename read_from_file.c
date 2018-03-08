@@ -30,9 +30,6 @@ char	*read_from_file(char *filename)
 		return (NULL);
 	ret = read(fd, buffer, BUF_SIZE);
 	buffer[ret] = '\0';
-	// ft_putnbr(ret);
-	// ft_putchar('\n');
-	// ft_putstr(buffer);
 	if (close(fd) == -1)
 	{
 		ft_putstr("close() error");
@@ -40,4 +37,3 @@ char	*read_from_file(char *filename)
 	}
 	return (buffer);
 }
-

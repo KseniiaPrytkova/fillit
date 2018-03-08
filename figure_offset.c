@@ -12,15 +12,14 @@
 
 #include "fillit.h"
 
-int 	get_x_offset(char **matrix)
+int		get_x_offset(char **matrix)
 {
-	int	row;
-	int letter;
-	int offset;
+	int		row;
+	int		letter;
+	int		offset;
 
 	row = 0;
 	offset = 4 - 1;
-
 	while (row < 4)
 	{
 		letter = 0;
@@ -38,7 +37,7 @@ int 	get_x_offset(char **matrix)
 	return (offset);
 }
 
-int 	get_y_offset(char **matrix)
+int		get_y_offset(char **matrix)
 {
 	int row;
 	int letter;
@@ -46,7 +45,6 @@ int 	get_y_offset(char **matrix)
 
 	letter = 0;
 	offset = 4 - 1;
-
 	while (letter < 4)
 	{
 		row = 0;
@@ -64,7 +62,7 @@ int 	get_y_offset(char **matrix)
 	return (offset);
 }
 
-void 	clean_matrix(char **matrix)
+void	clean_matrix(char **matrix)
 {
 	int row;
 	int letter;
@@ -82,25 +80,23 @@ void 	clean_matrix(char **matrix)
 	}
 }
 
-void move_shape(char **matrix, int get_x_offset, int get_y_offset)
+void	move_shape(char **matrix, int get_x_offset, int get_y_offset)
 {
-	char temp[4][4];
-	int row;
-	int letter;
-
+	char	temp[4][4];
+	int		row;
+	int		letter;
 
 	row = 0;
 	while (row < 4)
 	{
 		letter = 0;
-		while(letter < 4)
+		while (letter < 4)
 		{
 			temp[row][letter] = matrix[row][letter];
 			letter++;
 		}
 		row++;
 	}
-
 	clean_matrix(matrix);
 	row = 0;
 	while (row < 4)
@@ -109,17 +105,14 @@ void move_shape(char **matrix, int get_x_offset, int get_y_offset)
 		while (letter < 4)
 		{
 			if (temp[row][letter] != '.')
-			{
 				matrix[row - get_y_offset][letter - get_x_offset] = temp[row][letter];
-			}
 			letter++;
 		}
 		row++;
 	}
-
 }
 
-void figure_offset(char **matrix)
+void	figure_offset(char **matrix)
 {
 	int x_offset;
 	int y_offset;
@@ -130,3 +123,6 @@ void figure_offset(char **matrix)
 		move_shape(matrix, x_offset, y_offset);
 }
 
+// Norme: ./figure_offset.c
+// Error (line 83): function move_shape has 28 lines
+// Error (line 108): line has 87 characters

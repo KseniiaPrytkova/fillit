@@ -11,12 +11,9 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-//creating an array of pointers
-//NOT the same with two-dimensional array
-//!!!
-figure 	*init_figure()
+
+figure	*init_figure(void)
 {
-	//variable f has type figure
 	figure *f;
 
 	if (!(f = malloc(sizeof(figure))))
@@ -27,12 +24,11 @@ figure 	*init_figure()
 	f->matrix[1] = ft_strnew(4 + 1);
 	f->matrix[2] = ft_strnew(4 + 1);
 	f->matrix[3] = ft_strnew(4 + 1);
-
 	f->x = -1;
 	f->y = 0;
 	return (f);
-	 
 }
+
 void	figure_copy_paste(figure *empty, char *str)
 {
 	int	counter;
@@ -52,14 +48,12 @@ void	figure_copy_paste(figure *empty, char *str)
 			row_index++;
 			str++;
 		}
-
 		str++;
 		counter++;
 	}
-
 }
 
-void print_figure(figure *f)
+void	print_figure(figure *f)
 {
 	int	counter;
 	int	letter_index;
@@ -84,32 +78,26 @@ void print_figure(figure *f)
 
 int		main(int argc, char *argv[])
 {
-	char	*file_name;
+	char	*file_name = NULL;
 	char	*result_string;
 	figure	*empty_figure;
-	int 	fig_number;
-	int 	index;
+	int		fig_number;
+	int		index;
 	char	**squard_to_fill;
-	int 	squard_size;
-	int 	*states;
-	int 	logical;
-	int 	counter;
-
-	figure **array_of_figures;
+	int		squard_size;
+	figure	**array_of_figures;
 
 	if (argc == 2)
-	{
 		file_name = argv[1];
-	}
-
-	result_string = read_from_file(file_name);	
+	else
+		printf("it will be USAGE here\n");
+	result_string = read_from_file(file_name);
 	fig_number = ft_checktabl(result_string);
 	if (fig_number == 0)
 	{
 		ft_putstr("error\n");
 		return (0);
 	}
-	printf("There is %i figures in file! \n", fig_number);
 	array_of_figures = malloc(sizeof(figure *) * fig_number);
 	index = 0;
 	while (index < fig_number)
@@ -117,46 +105,26 @@ int		main(int argc, char *argv[])
 		empty_figure = init_figure();
 		figure_copy_paste(empty_figure, result_string);
 		array_of_figures[index] = empty_figure;
-		print_figure(array_of_figures[index]);
-		ft_putchar('\n');
 		index++;
 		result_string = result_string + 21;
 	}
-
-// также работаем с array_of_figures но все фигуры смещены в левый верхний угол с помощью
-// функции figure_offset. т.е каждый matrix был перезаписан и смещен в угол
 	index = 0;
 	while (index < fig_number)
 	{
 		figure_offset(array_of_figures[index]->matrix);
-		print_squard(array_of_figures[index]->matrix, 4);
-		ft_putchar('\n');
 		index++;
 	}
-	printf("MIN_SQUARD_WIDTH IS: %i\n", min_sq_width(array_of_figures[0]->matrix));
-	printf("MIN_SQUARD_HEIGHT IS:%i\n", min_sq_height(array_of_figures[0]->matrix));
-
+	min_sq_width(array_of_figures[0]->matrix);
+	min_sq_height(array_of_figures[0]->matrix);
 	squard_size = min_sq_width(array_of_figures[0]->matrix);
 	if (min_sq_height(array_of_figures[0]->matrix) > squard_size)
-	{
 		squard_size = min_sq_height(array_of_figures[0]->matrix);
-	}
-	printf("Squard_size is: %i\n", squard_size );
-
 	squard_to_fill = ft_generate(squard_size);
- 	
-	// пустой. сюда будем вставлять фигуры
-	// printf("This is squard to fill! must be empty!\n");
-	// print_squard(squard_to_fill, squard_size);
-	printf("-----------------\n");
-
-	// В НАШЕ ПУСТОЕ РАБОЧЕЕ ПОЛЕ (squard_to_fill) ЗАПИСЫВАЕМ 1Ю ФИГУРУ!!!
-	// ok_here(squard_to_fill, array_of_figures[0], 0, 0, 0);
-
-	printf("RESULT FIELD:\n");
-	print_squard(squard_to_fill, squard_size);
-
-	printf("control_fn says: %i\n", control_fn(fig_number, squard_to_fill, squard_size, array_of_figures ));
-
+	control_fn(fig_number, squard_to_fill, squard_size, array_of_figures);
 	return (0);
 }
+
+// Norme: ./fillit.c
+// Error (line 79): function main has 44 lines
+// Error (line 79, col 0): main has 8 variables
+// Error (line 81, col 7): file_name is instanciated during declaration
