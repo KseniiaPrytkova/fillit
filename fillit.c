@@ -81,10 +81,10 @@ int		main(int argc, char *argv[])
 	char	*file_name = NULL;
 	char	*result_string;
 	figure	*empty_figure;
-	int		fig_number;
-	int		index;
+	int	fig_number;
+	int	index;
 	char	**squard_to_fill;
-	int		squard_size;
+	int	squard_size;
 	figure	**array_of_figures;
 
 	if (argc == 2)
