@@ -6,7 +6,7 @@ Obviously, the main goal is to find the smallest square in the minimal amount of
 To explore how the program works follow this simple steps in your terminal (you should be in the folder with the project):
 ```
 1. $> make
-2. $> ./test_2.fillit
+2. $> ./fillit test_2.fillit
 ```
 and you will see:
 ```
