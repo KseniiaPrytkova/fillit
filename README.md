@@ -4,12 +4,15 @@ Fillit is not about recoding Tetris, even if it’s still a variant of this game
 Obviously, the main goal is to find the smallest square in the minimal amount of time, despite an exponentially growing number of possibilities each time a piece is added.
 
 To explore how the program works follow this simple steps in your terminal (you should be in the folder with the project):
+```
 1. $> make
 2. $> ./fillit valid_sample.fillit
+```
 To recompile the program run:
+```
 $> make fclean
 $> make
-
+```
 To identify each Tetrimino in the square solution, a capital letter was assigned to each Tetrimino, starting with ’A’ and increasing for each new Tetrimino.
 In file 'Tetriminos' there are all variants of figures, that can enter the program. No rotation is possible on a Tetrimino.
 
