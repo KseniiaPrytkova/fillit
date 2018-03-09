@@ -58,5 +58,5 @@ $>
 ```
 TO DO:
 1. check the memory leaks and free the memory of some objects
-2. solve the problem with the bulshit code in is_fit (those unexpected case with some figures, that killes the program)
+2. solve the problem with the bulshit code in is_fit (those unexpected case with some figures, that kill the program)
 3. norme errors
