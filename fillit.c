@@ -121,6 +121,7 @@ int		main(int argc, char *argv[])
 		squard_size = min_sq_height(array_of_figures[0]->matrix);
 	squard_to_fill = ft_generate(squard_size);
 	control_fn(fig_number, squard_to_fill, squard_size, array_of_figures);
+
 	return (0);
 }
 
