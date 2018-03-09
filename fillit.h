@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include "libft.h"
 
-typedef struct		shape
+typedef struct			shape
 {
 	char			**matrix;
 	int			x;
